@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Event Venue Agent</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-badge">AI Destekli Mekan Öneri Sistemi</div>
+
+      <h1>AI Event / Venue Recommendation Agent</h1>
+
+      <p>
+        Organizasyon veya günlük aktivite ihtiyacını gir, sistem web araştırması yaparak
+        sana en uygun mekanları puanlı ve açıklamalı şekilde önersin.
+      </p>
+
+      <div class="hero-stats">
+        <div>
+          <strong>6</strong>
+          <span>Agent</span>
+        </div>
+        <div>
+          <strong>3</strong>
+          <span>En iyi öneri</span>
+        </div>
+        <div>
+          <strong>Web</strong>
+          <span>Gerçek kaynak</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <div class="card-header">
+        <div>
+          <span class="section-label">Bilgileri Gir</span>
+          <h2>Organizasyon Bilgileri</h2>
+        </div>
+        <div class="header-icon">✨</div>
+      </div>
+
+      <form id="eventForm">
+        <div class="grid">
+          <div class="field">
+            <label for="eventType">Etkinlik türü</label>
+            <input
+              id="eventType"
+              placeholder="Örn: doğum günü, kahve buluşması"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="city">Şehir</label>
+            <input
+              id="city"
+              placeholder="Örn: İstanbul"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="district">İlçe</label>
+            <input
+              id="district"
+              placeholder="Örn: Kadıköy"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="guestCount">Kişi sayısı</label>
+            <input
+              id="guestCount"
+              type="number"
+              placeholder="Örn: 4"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="budget">Bütçe</label>
+            <input
+              id="budget"
+              type="number"
+              placeholder="Örn: 1200"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="venueType">Mekan tipi</label>
+            <select id="venueType">
+              <option value="indoor">Kapalı mekan</option>
+              <option value="outdoor">Açık mekan</option>
+              <option value="both">Fark etmez</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="catering">Yemek durumu</label>
+            <select id="catering">
+              <option value="yes">Yemek dahil olsun</option>
+              <option value="no">Yemek gerekmez</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="music">Canlı müzik</label>
+            <select id="music">
+              <option value="no">Canlı müzik olmasın</option>
+              <option value="yes">Canlı müzik olabilir</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="activity">Aktivite</label>
+            <select id="activity">
+              <option value="kahve içmek">Kahve içmek</option>
+              <option value="yemek yemek">Yemek yemek</option>
+              <option value="tatlı yemek">Tatlı yemek</option>
+              <option value="kutlama">Kutlama yapmak</option>
+              <option value="toplantı">Toplantı yapmak</option>
+              <option value="fark etmez">Fark etmez</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="transportation">Ulaşım tercihi</label>
+            <select id="transportation">
+              <option value="fark etmez">Ulaşım fark etmez</option>
+              <option value="toplu taşıma">Toplu taşıma</option>
+              <option value="özel araç">Özel araç</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field full-field">
+          <label for="preferences">Ek istekler</label>
+          <textarea
+            id="preferences"
+            placeholder="Örn: sakin ortam, alkolsüz mekan, aile ortamına uygun, bahçeli cafe..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>Mekan Önerisi Al</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </form>
+    </section>
+
+    <section id="result" class="result-card hidden">
+      <div class="card-header">
+        <div>
+          <span class="section-label">Analiz Sonucu</span>
+          <h2>Önerilen Mekanlar</h2>
+        </div>
+        <div class="header-icon">📍</div>
+      </div>
+
+      <div id="output" class="output"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
